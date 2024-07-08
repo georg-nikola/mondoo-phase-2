@@ -4,13 +4,18 @@ on:
   push:
     branches:
       - main
+  repository_dispatch:
+    types: [build-docker]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Phase 2 repository
+        uses: actions/checkout@v4
+
+      - name: Checkout code from phase 1 repository
         uses: actions/checkout@v4
         with:
           repository: georg-nikola/mondoo-phase-1
