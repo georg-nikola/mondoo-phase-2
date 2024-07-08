@@ -5,9 +5,9 @@ metadata:
   labels:
     {{- include "mondoo-example.labels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type | default "ClusterIP" }}
+  type: {{ .Values.service.type | quote }}
   ports:
-    - port: {{ .Values.service.port | default 80 }}
+    - port: {{ .Values.service.port }}
       targetPort: 80
   selector:
     app: {{ include "mondoo-example.name" . }}

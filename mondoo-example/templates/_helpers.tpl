@@ -16,14 +16,13 @@
 {{- end -}}
 
 {{- define "mondoo-example.labels" -}}
-helm.sh/chart: {{ include "mondoo-example.chart" . }}
-app.kubernetes.io/name: {{ include "mondoo-example.name" . }}
-app.kubernetes.io/instance: {{ .Release.Name }}
-app.kubernetes.io/version: {{ .Chart.AppVersion }}
-app.kubernetes.io/managed-by: {{ .Release.Service }}
+helm.sh/chart: {{ include "mondoo-example.chart" . | quote }}
+app.kubernetes.io/name: {{ include "mondoo-example.name" . | quote }}
+app.kubernetes.io/instance: {{ .Release.Name | quote }}
+app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
+app.kubernetes.io/managed-by: {{ .Release.Service | quote }}
 {{- end -}}
 
 {{- define "mondoo-example.chart" -}}
 {{- .Chart.Name }}-{{ .Chart.Version }}
 {{- end -}}
-
