@@ -1,0 +1,6 @@
+apiVersion: v2
+name: mondoo-example
+description: A Helm chart for Mondoo Example
+version: 0.1.0
+appVersion: "1.0"
+
